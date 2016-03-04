@@ -13,6 +13,7 @@
 		F4D6E4ED1C8976F500A1A297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4D6E4EB1C8976F500A1A297 /* Main.storyboard */; };
 		F4D6E4EF1C8976F500A1A297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D6E4EE1C8976F500A1A297 /* Assets.xcassets */; };
 		F4D6E4F21C8976F500A1A297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4D6E4F01C8976F500A1A297 /* LaunchScreen.storyboard */; };
+		F4D6E4FA1C89772C00A1A297 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F4D6E4F91C89772C00A1A297 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F4D6E4EE1C8976F500A1A297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4D6E4F11C8976F500A1A297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4D6E4F31C8976F500A1A297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4D6E4F91C89772C00A1A297 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = SettingsBundle/Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		F4D6E4D61C8976F500A1A297 = {
 			isa = PBXGroup;
 			children = (
+				F4D6E4F91C89772C00A1A297 /* Settings.bundle */,
 				F4D6E4E11C8976F500A1A297 /* SettingsBundle */,
 				F4D6E4E01C8976F500A1A297 /* Products */,
 			);
@@ -89,6 +92,7 @@
 				F4D6E4DB1C8976F500A1A297 /* Sources */,
 				F4D6E4DC1C8976F500A1A297 /* Frameworks */,
 				F4D6E4DD1C8976F500A1A297 /* Resources */,
+				F4D6E4FB1C89788F00A1A297 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -136,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4D6E4FA1C89772C00A1A297 /* Settings.bundle in Resources */,
 				F4D6E4F21C8976F500A1A297 /* LaunchScreen.storyboard in Resources */,
 				F4D6E4EF1C8976F500A1A297 /* Assets.xcassets in Resources */,
 				F4D6E4ED1C8976F500A1A297 /* Main.storyboard in Resources */,
@@ -143,6 +148,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F4D6E4FB1C89788F00A1A297 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "version=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"$SRCROOT/SettingsBundle/Info.plist\")\necho $version\n/usr/libexec/PlistBuddy \"$SRCROOT/SettingsBundle/Settings.bundle/Root.plist\" -c \"set PreferenceSpecifiers:4:DefaultValue $version\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4D6E4DB1C8976F500A1A297 /* Sources */ = {
