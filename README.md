@@ -6,3 +6,6 @@ This is a Demo application which demostrate setting Version in Settings.bundle a
 Under Build Phases you can find a Run Script which does the task of updating the Settings Bundle.
 
 So whenever you change your version just clean-build your project it will reflect in Settings.bundle as well.
+
+Watch the Video of the project at below link:
+      https://www.youtube.com/watch?v=WhaHwJoOuZ0
